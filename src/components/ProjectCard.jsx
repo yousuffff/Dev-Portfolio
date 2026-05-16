@@ -1,4 +1,6 @@
-import {motion} from 'framer-motion'
+import {motion, useInView} from 'framer-motion'
+import {useRef} from 'react'
+import {fadeUp} from '../animations/variants'
 
 function ProjectCard({ p, i }) {
   const ref = useRef(null);

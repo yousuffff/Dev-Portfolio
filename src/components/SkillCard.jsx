@@ -1,23 +1,36 @@
-import React from "react";
-import {skills} from "../data/skills";
-
-const SkillCard = () => {
+import { motion, useInView } from "framer-motion";
+function SkillCard({ s, i }) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-40px" });
   return (
-    <section className="section" id="skills">
-      <div className="sec-header">
-        <div>
-          <div className="sec-tag">What I know</div>
-          <div className="sec-title">Skills & Tools</div>
-        </div>
-        <span className="sec-count">{skills.length} skills</span>
+    <motion.div
+      ref={ref}
+      className="skill-card"
+      variants={fadeUp}
+      custom={i * 0.055}
+      initial="hidden"
+      animate={inView ? "show" : "hidden"}
+      whileHover={{ scale: 1.012 }}
+      transition={{ type: "spring", stiffness: 300 }}
+    >
+      <div className="skill-row">
+        <span className="skill-name">{s.name}</span>
+        <span className="skill-level">{s.level}</span>
       </div>
-      <div className="skills-grid">
-        {skills.map((s, i) => (
-          <SkillCard key={s.name} s={s} i={i} />
-        ))}
+      <div className="skill-bar">
+        <motion.div
+          className="skill-fill"
+          initial={{ width: 0 }}
+          animate={inView ? { width: `${s.pct}%` } : {}}
+          transition={{
+            duration: 1.1,
+            delay: 0.1 + i * 0.065,
+            ease: [0.16, 1, 0.3, 1],
+          }}
+        />
       </div>
-    </section>
+    </motion.div>
   );
-};
+}
 
 export default SkillCard;

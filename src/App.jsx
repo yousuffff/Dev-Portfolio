@@ -9,7 +9,7 @@ import ContactSection from "./sections/ContactSection";
 import Footer from "./components/Footer";
 import CursorGlow from "./components/CursorGlow";
 
-import injectFonts from "./utils/injectFonts";
+import {injectFonts} from "./utils/injectFonts";
 
 import "./styles/global.css";
 
