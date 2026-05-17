@@ -1,4 +1,6 @@
 import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import { fadeUp } from "../animations/variants";
 
 function Reveal({ children, className = "", delay = 0 }) {
   const ref = useRef(null);

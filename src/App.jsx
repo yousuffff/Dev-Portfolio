@@ -11,7 +11,7 @@ import CursorGlow from "./components/CursorGlow";
 
 import {injectFonts} from "./utils/injectFonts";
 
-import "./styles/global.css";
+import "../styles/global.css";
 
 export default function App() {
   const [dark, setDark] = useState(true);
