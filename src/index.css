@@ -34,6 +34,10 @@ a {
   --grid-line: rgba(255, 255, 255, 0.025);
   --shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
   --cursor-glow: rgba(200, 240, 90, 0.055);
+  --card-bg: rgba(255, 255, 255, 0.04);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  --card-hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
 }
 
 /* ── LIGHT THEME ── */
@@ -57,6 +61,10 @@ a {
   --grid-line: rgba(0, 0, 0, 0.04);
   --shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
   --cursor-glow: rgba(90, 158, 0, 0.06);
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --card-border: rgba(0, 0, 0, 0.08);
+  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --card-hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
 }
 
 body {
@@ -764,6 +772,201 @@ body {
   border-color: var(--border-h);
   color: var(--accent);
   background: var(--accent-dim);
+}
+
+/* -Github - */
+/* ================= GITHUB ACTIVITY ================= */
+
+.github-section {
+  padding: 6rem 2rem;
+}
+
+.github-inner {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Cards */
+.github-profile,
+.github-stat,
+.contrib-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--card-border);
+  border-radius: 24px;
+  padding: 1.5rem;
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s ease;
+}
+
+.github-profile:hover,
+.github-stat:hover,
+.contrib-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--card-hover-shadow);
+}
+
+/* Profile */
+.github-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.github-avatar-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.github-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.15);
+}
+
+.github-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.github-handle {
+  color: var(--muted2);
+  font-size: 0.95rem;
+  font-family: "JetBrains Mono", monospace;
+}
+
+.github-bio {
+  color: var(--muted);
+  line-height: 1.6;
+  margin-top: 1rem;
+}
+
+.github-link {
+  display: inline-block;
+  margin-top: 1.2rem;
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.github-link:hover {
+  text-decoration: underline;
+}
+
+/* Stats */
+.github-stats-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.github-stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.github-stat-num {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent);
+  background: none;
+  -webkit-text-fill-color: unset;
+}
+
+.github-stat-label {
+  color: var(--muted2);
+  font-size: 0.9rem;
+  font-family: "JetBrains Mono", monospace;
+}
+
+.github-stat-icon {
+  font-size: 2rem;
+  opacity: 0.8;
+}
+
+/* Contribution Card */
+.contrib-card {
+  margin-top: 2rem;
+  overflow-x: auto;
+}
+
+.contrib-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 1rem;
+  display: block;
+  font-family: "JetBrains Mono", monospace;
+}
+
+/* ================= GITHUB CALENDAR ================= */
+
+.react-activity-calendar {
+  width: 100%;
+}
+
+.react-activity-calendar svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.react-activity-calendar text {
+  fill: var(--muted2) !important;
+  font-family: "JetBrains Mono", monospace !important;
+  font-size: 9px !important;
+}
+
+.react-activity-calendar rect {
+  rx: 3;
+  transition:
+    transform 0.15s ease,
+    filter 0.15s ease;
+  cursor: default;
+}
+
+.react-activity-calendar rect:hover {
+  transform: scale(1.35);
+  filter: brightness(1.2);
+  stroke: var(--accent);
+  stroke-width: 1;
+}
+
+/* Hide extra footer */
+.react-activity-calendar__footer,
+.react-activity-calendar__legend-months {
+  display: none;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .github-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .github-stat-num {
+    font-size: 1.5rem;
+  }
+
+  .github-avatar {
+    width: 60px;
+    height: 60px;
+  }
+
+  .react-activity-calendar text {
+    font-size: 8px !important;
+  }
+
+  .react-activity-calendar rect {
+    width: 8px;
+    height: 8px;
+  }
 }
 
 /* ── FOOTER ── */

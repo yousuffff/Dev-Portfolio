@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import StatCounter from "./StatCounter";
 import { slideIn, fadeUp } from "../animations/variants";
 
-const Hero = () => {
+const Hero = ({scrollTo}) => {
   return (
     <section className="hero">
       <motion.div

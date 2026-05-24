@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 
 import Navbar from "./components/Navbar";
@@ -9,6 +9,7 @@ import AboutSection from "./sections/AboutSection";
 import ContactSection from "./sections/ContactSection";
 import Footer from "./components/Footer";
 import CursorGlow from "./components/CursorGlow";
+const GitHubActivity = lazy(() => import("./components/GithubActivity"));
 
 import { injectFonts } from "./utils/injectFont";
 
@@ -57,7 +58,7 @@ export default function App() {
           scrollTo={scrollTo}
         />
 
-        <Hero />
+        <Hero scrollTo={scrollTo} />
 
         <ProjectsSection activeTab={activeTab} setActiveTab={setActiveTab} />
 
@@ -66,6 +67,8 @@ export default function App() {
         <AboutSection />
 
         <ContactSection />
+
+        <GitHubActivity />
 
         <Footer />
       </div>
