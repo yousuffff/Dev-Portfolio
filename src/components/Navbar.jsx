@@ -16,7 +16,7 @@ const Navbar = ({ dark, setDark, activeNav, scrollTo }) => {
         <ThemeToggle dark={dark} onToggle={() => setDark((d) => !d)} />
       </div>
       <div className="nav-links">
-        {["work", "skills", "about", "contact"].map((id) => (
+        {["work", "skills", "about" , "github", "contact"].map((id) => (
           <motion.button
             key={id}
             className={`nav-link${activeNav === id ? " active" : ""}`}

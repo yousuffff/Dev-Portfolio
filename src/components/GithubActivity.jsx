@@ -1,7 +1,12 @@
 import { useEffect, useState, useRef } from "react";
 import { GitHubCalendar } from "react-github-calendar";
 import { motion } from "framer-motion";
-import { FiFolder, FiUsers, FiGitPullRequest, FiGithub , FiUserPlus} from "react-icons/fi";
+import {
+  FiFolder,
+  FiUsers,
+  FiGithub,
+  FiUserPlus,
+} from "react-icons/fi";
 
 function GitHubActivity() {
   const [githubData, setGithubData] = useState(null);
@@ -54,7 +59,7 @@ function GitHubActivity() {
   ];
 
   return (
-    <section className="github-section" ref={ref} id="github">
+    <section className="github-section section" ref={ref} id="github">
       <div className="sec-header">
         <div>
           <div className="sec-tag">
@@ -118,7 +123,7 @@ function GitHubActivity() {
       <div className="contrib-card">
         <div className="contrib-header">
           <span className="contrib-title">
-            Contribution Activity — Last 6 Months
+            Contribution Activity — Last 12 Months
           </span>
         </div>
 
@@ -131,27 +136,19 @@ function GitHubActivity() {
           colorScheme="dark"
           theme={{
             light: [
-              "#ebedf0",
-              "#9be9a8",
-              "#40c463",
-              "#30a14e",
-              "#216e39",
+              "#e5e7eb", // empty
+              "#86efac", // light green (better visibility)
+              "#4ade80", // medium
+              "#22c55e", // strong
+              "#15803d", // dark
             ],
-            dark: [
-              "var(--bg)",
-              "var(--accent-dim)",
-              "#0e4429",
-              "#26a641",
-              "#39d353",
-            ],
+            dark: ["var(--bg)", "#14532d", "#16a34a", "#22c55e", "#4ade80"],
           }}
           transformData={(data) => {
             const sixMonthsAgo = new Date();
-            sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+            sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 12);
 
-            return data.filter(
-              (day) => new Date(day.date) >= sixMonthsAgo
-            );
+            return data.filter((day) => new Date(day.date) >= sixMonthsAgo);
           }}
         />
       </div>
@@ -160,5 +157,3 @@ function GitHubActivity() {
 }
 
 export default GitHubActivity;
-
-

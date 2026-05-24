@@ -66,9 +66,9 @@ export default function App() {
 
         <AboutSection />
 
-        <ContactSection />
-
         <GitHubActivity />
+        
+        <ContactSection />
 
         <Footer />
       </div>
