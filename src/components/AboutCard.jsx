@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { about } from "../data/about";
 import Reveal from "./Reveal"

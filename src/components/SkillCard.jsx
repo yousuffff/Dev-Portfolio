@@ -1,4 +1,6 @@
 import { motion, useInView } from "framer-motion";
+import {useRef} from "react"
+import {fadeUp} from "../animations/variants"
 function SkillCard({ s, i }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-40px" });

@@ -1,3 +1,6 @@
+import {useEffect} from "react"
+import {useSpring , motion} from "framer-motion"
+
 export default function CursorGlow() {
   const x = useSpring(-400, { stiffness: 55, damping: 16 });
   const y = useSpring(-400, { stiffness: 55, damping: 16 });
