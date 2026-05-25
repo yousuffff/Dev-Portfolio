@@ -47,4 +47,13 @@ export const games = [
     github: "https://github.com/yousuffff/Snake-game",
     demo: "https://snake-game-tau-ashy.vercel.app/",
   },
+  {
+    num: "03",
+    date: "2025",
+    title: "Simon Says Game",
+    desc: "An interactive memory-based Simon Says game with random sequence generation, pattern matching logic, level progression, game-over detection, and real-time visual feedback. Built with smooth UI interactions and responsive gameplay using vanilla JavaScript.",
+    tags: ["HTML", "CSS", "JavaScript"],
+    github: "https://github.com/yousuffff/Simon-s-Says-Game",
+    demo: "https://simon-s-says-game.vercel.app/",
+  },
 ];
