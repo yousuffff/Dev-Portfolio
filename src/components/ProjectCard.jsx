@@ -1,20 +1,29 @@
-import {motion, useInView} from 'framer-motion'
-import {useRef} from 'react'
-import {fadeUp} from '../animations/variants'
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import { fadeUp } from "../animations/variants";
 
 function ProjectCard({ p, i }) {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-40px" });
+
+  const inView = useInView(ref, {
+    once: true,
+    margin: "-80px",
+  });
+
   return (
-    <motion.div
+    <motion.article
       ref={ref}
       className="proj-card"
       variants={fadeUp}
-      custom={i * 0.11}
+      custom={i * 0.12}
       initial="hidden"
       animate={inView ? "show" : "hidden"}
-      whileHover={{ y: -3 }}
-      transition={{ type: "spring", stiffness: 240, damping: 20 }}
+      whileHover={{ y: -6 }}
+      transition={{
+        type: "spring",
+        stiffness: 260,
+        damping: 18,
+      }}
     >
       <div className="proj-row">
         <div className="proj-left">
@@ -22,15 +31,19 @@ function ProjectCard({ p, i }) {
             <span className="proj-num">{p.num}</span>
             <span className="proj-date">{p.date}</span>
           </div>
-          <div className="proj-title">{p.title}</div>
-          <div className="proj-desc">{p.desc}</div>
+
+          <h3 className="proj-title">{p.title}</h3>
+
+          <p className="proj-desc">{p.desc}</p>
+
           <div className="proj-tags">
-            {p.tags.map((t) => (
-              <span key={t} className="proj-tag">
-                {t}
+            {p.tags.map((tag) => (
+              <span key={tag} className="proj-tag">
+                {tag}
               </span>
             ))}
           </div>
+
           <div className="proj-links">
             {p.github && (
               <a
@@ -38,27 +51,38 @@ function ProjectCard({ p, i }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="proj-link"
+                aria-label={`${p.title} GitHub Repository`}
               >
-                ⌥ GitHub
+                GitHub
               </a>
             )}
+
             {p.demo && (
               <a
                 href={p.demo}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="proj-link"
+                aria-label={`${p.title} Live Demo`}
               >
-                ↗ Live Demo
+                Live Demo
               </a>
             )}
           </div>
         </div>
+
         <div className="proj-right">
-          <div className="proj-arrow">↗</div>
+          <motion.div
+            className="proj-arrow"
+            whileHover={{ x: 4, y: -4 }}
+            transition={{ duration: 0.2 }}
+          >
+            ↗
+          </motion.div>
         </div>
       </div>
-    </motion.div>
+    </motion.article>
   );
 }
+
 export default ProjectCard;
