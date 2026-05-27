@@ -64,7 +64,7 @@ function GitHubActivity() {
         <div>
           <div className="sec-tag">
             <FiGithub />
-            <span>Open Source</span>
+            <span> Open Source</span>
           </div>
           <div className="sec-title">GitHub Activity</div>
         </div>
